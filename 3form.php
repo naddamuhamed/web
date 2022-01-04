@@ -114,7 +114,7 @@ $nameErr="";
                      </div>
                   </div>
                   <label>Address:</label>
-                  <input type="text" name="address" class="form-control" placeholder="Enter your Address.." required><br>
+                  <input type="text" name="address" class="form-control" placeholder="Enter your Address.." pattern="^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$" required title="alphanumeric characters" required><br>
                   <label> Gender:</label><br>
                   <input type="radio" name="gender" value="male" required> <b>Male</b>
                   <input type="radio" name="gender" value="female" required> <b>Female</b>

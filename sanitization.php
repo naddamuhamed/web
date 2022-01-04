@@ -3,40 +3,44 @@
 <body>
 
 <?php
-     
-if (isset($_POST['fname']) && isset($_POST['lname']) ){
+    //  firstname,lastname,pwd,photo,email,address,mobile,gender,age,type
+// if (isset($_POST['fname']) && isset($_POST['lname']) ){
+    // function san(){
 $fname = filter_var($_POST['fname'], FILTER_SANITIZE_STRING);
 $lname = filter_var($_POST['lname'], FILTER_SANITIZE_STRING);
-echo $lname,$fname;
+// echo $lname,$fname;
 // $fname=$newfname;
 // $lname=$newlname;
-}
+// }
 
-if (isset($_POST['email'])){
+// if (isset($_POST['email'])){
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    echo $email;
+    // echo $email;
 // $email=$newemail;
-}
+// }
 
-if(isset($_POST['pwd'])&&  isset($_POST['conpwd'])){
+// if(isset($_POST['pwd'])&&  isset($_POST['conpwd'])){
 $pwd = filter_var($_POST['pwd'], FILTER_SANITIZE_STRING);
 $conpwd = filter_var($_POST['conpwd'], FILTER_SANITIZE_STRING);
-echo $pwd,$conpwd;
+// echo $pwd,$conpwd;
 // $pwd = $newpassword;
 // $conpwd = $newconpwd;
-}
+// }
 
-if (isset($_POST['phoneNumber'])){
+// if (isset($_POST['phoneNumber'])){
 $phoneNumber = filter_var($_POST['phoneNumber'], FILTER_SANITIZE_NUMBER_INT);
-echo $phoneNumber;
-}
+// echo $phoneNumber;
+// }
 // $phoneNumber = $newphoneNumber;
 
-if (isset($_POST['address'])){
+// if (isset($_POST['address'])){
 $address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
-echo $address;
+// echo $address;
 // $address = $newaddress;
-}
+// }
+$gender = filter_var($_POST['gender'], FILTER_SANITIZE_STRING);
+$age = filter_var($_POST['phoneNumber'], FILTER_SANITIZE_NUMBER_INT);
+// }
 
 ?>
 
