@@ -96,10 +96,13 @@ if($gender==""){
     // $gender=$_POST["gender"];
     header("Location:error.php");
 }
-// else{
+else{
+    if (!preg_match("/^[a-zA-Z ]*$/",$gender)){
+        header("Location:error.php");
+    }
 //   echo "No answers were selected";
 
-// }
+}
 
 // if (isset($_POST['address'])) {
     if ($address == "") 
@@ -107,7 +110,10 @@ if($gender==""){
     header("Location:error.php");
     // } 
 // else{
-    // $address=$_POST['address'];
+//     if (!preg_match("/^[a-zA-Z ]*$/",$address)){
+//         header("Location:error.php");
+//     }
+//     // $address=$_POST['address'];
 // }
 
 if ($age == "") 

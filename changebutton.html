@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+ 
+  <script src='http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  <style type="text/css">
+    .changePass {
+  position: relative;
+}
+
+.changePass input{
+  position: absolute;
+  padding: 5px;
+  display: none;
+}
+
+.changePass .changePassBtn{
+  background: #2d89ef;
+  border-bottom: 2px solid #2b5797;
+  color: white;
+  padding: 4px;
+  display: inline;
+  border-radius: 2px;
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.changePass .changePassBtn:hover{
+  background: #2b5797;
+  border-top: 2px solid #2d89ef;
+  border-bottom: 0;
+}
+
+  </style>
+</head>
+<body>
+<form id= "changePassForm" action="" method="post" enctype="multipart/form-data">  
+  <div class="changePass">
+
+    <div class="changePassBtn">Change Password</div><br>
+    <input type="password" placeholder="Password" name="password"><br>
+ <div class="changePassBtn">Change username</div><br>
+ <input type="text" placeholder="username" name="username">
+  </div>
+
+</form>
+
+<!-- <form id= "changePassForm" action="" method="post" enctype="multipart/form-data">  
+  <div class="changePass">
+    <div class="changePassBtn">Change Password</div>
+    <input type="password" placeholder="Password" name="password">
+  </div>
+</form> -->
+ 
+<script>
+//Shows Input Box When Focussed
+$(".changePassBtn").click(function() {
+  var neww = $(".changePass input").css("width");
+  $(this).animate({
+      width: neww
+    }, 300, function(){
+      $(".changePass input").fadeIn(300, function(){
+        $(".changePassBtn").hide();
+      }).focus();
+    });
+});
+
+//Shows Button When Unfocussed
+$(".changePass input").blur(function(){
+  $(".changePassBtn").css("width", "auto");
+  var nww = $(".changePassBtn").css("width");
+  $(this).animate({
+      width: nww
+    }, 300, function(){
+      $(".changePassBtn").show(0, function(){
+        $(".changePass input").fadeOut(500, function(){
+          $(".changePass input").css("width", "auto");
+        });
+      });
+    });
+});
+</script>
+</body>
+</html>
