@@ -152,9 +152,9 @@ echo "</div>";
 ?>
 
         <form method="post" action="">
-  <!-- <br><p id="total_votes">Total Votes:<?php echo $total;?></p> -->
+  <br><p id="total_votes">Total Votes:<?php echo $total;?></p>
   <div class="div">
-	  <!-- <p>PHP (<?php echo  $total_php_rating;?>)</p> -->
+	  <p>PHP (<?php echo  $total_php_rating;?>)</p>
 	  <input type="hidden" id="php1_hidden" value="1">
 	  <img src="star1.png" onmouseover="change(this.id);" id="php1" class="php">
 	  <input type="hidden" id="php2_hidden" value="2">
