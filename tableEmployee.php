@@ -73,16 +73,13 @@ color: black;
    background-color: #F88306;
 }
 
-.main {
-  margin-left: 200px; /* Same as the width of the sidenav */
-  font-size: 20px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
+
   .searchbutton
       {
         background-color:#F88306;
+
       }
-       mark {
+      mark {
   background-color: #F88306;
   color: black;
 }
@@ -94,7 +91,7 @@ $('[data-toggle="tooltip"]').tooltip();
 </script>
 </head>
 <body>
-        <?php include "headeradmin.html"; ?>
+    <?php include "headeradmin.html"; ?>
      <div class="main">
     <div class="container">
       <div class="row">
@@ -127,34 +124,56 @@ $('[data-toggle="tooltip"]').tooltip();
         $con=mysqli_connect('localhost','root','','hiking');
         if(isset($_GET['txt'])){
             ?>
-            <table border="1">
-    
-        <thead>
-<th>Name</th> 
-<th>Location</th>
-<th>Time from</th>
-<th>Time to</th>
-<th>Price</th>
-<th>Id</th>
-<!-- <th>Capacity</th> -->
-        </thead>
+           
             <?php
             $values = $_GET['txt'];
-            $query = "SELECT * FROM groups WHERE CONCAT(name,location) Like (('%$values%')) ";
+            $query = "SELECT * FROM person WHERE CONCAT(firstname) Like (('%$values%')) and type='admin' ";
             $result = mysqli_query($con,$query);
             if(mysqli_num_rows($result)>0){
+                ?>
+
+                 <table border="1">
+    
+        <thead>
+<th>First Name</th>  
+<th>Last Name</th>
+<!-- <th>Password</th> -->
+<th>ID</th>
+<!-- <th>Photo</th> -->
+<th>Email</th>
+<!-- <th>Address</th> -->
+<th>Mobile</th>
+<th>Gender</th>
+<th>Age</th>
+<th>Type</th>
+<!-- <th>SSN</th> -->
+<th>Salary</th>
+<th>Delete</th>
+
+
+        </thead>
+        <?php
                 foreach($result as $row){
                     
                   
                     ?>
             <tr>
-<td><?php echo $row["name"]; ?></td>
-<td><?php echo $row["location"]; ?></td>
-<td><?php echo $row["timeslotfrom"]; ?></td>
-<td><?php echo $row["timeslotto"]; ?></td>
-<td><?php echo $row["price"]; ?></td>
-<td><?php echo $row["id"]; ?></td>
-<!-- <td><?php echo $row["capacity"]; ?></td> -->
+           <td><?php echo $row['firstname'];?></td>
+            <td><?php echo $row['lastname'];?></td>
+            <!-- <td><?php echo $row['pwd'];?></td> -->
+            <td><?php echo $row['id'];?></td>
+            <!-- <td><?php echo $row['photo'];?></td> -->
+            <td><?php echo $row['email'];?></td>
+            <!-- <td><?php echo $row['address'];?></td> -->
+            <td><?php echo $row['mobile'];?></td>
+            <td><?php echo $row['gender'];?></td>
+            <td><?php echo $row['age'];?></td>
+            <td><?php echo $row['type'];?></td>
+            <!-- <td><?php echo $row['ssn'];?></td> -->
+            <td><?php echo $row['salary'];?></td>
+            <td>
+ <button type="submit" class="button" value="Delete" onclick="window.location.href='delete.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
+</td>
             </tr>
         
             
@@ -171,59 +190,86 @@ $('[data-toggle="tooltip"]').tooltip();
             
         }
         
+
+
+else{
+    ?>
+<h3><?php echo "No result found";?></h3>
+<?php
+}
+
             }
                 ?>
         
         
+   
+
+
+
 
 <div class="bs-example">
 <div class="container">
 <div class="row">
 <div class="col-md-3">
 <div class="page-header clearfix">
-<h2 class="pull-left"><mark>group List</mark></h2>
+   
+<h2 class="pull-left"><mark>Employee's List</mark></h2>
 <br><br>
-</div>
+
 <?php
 $con=mysqli_connect('localhost','root','','hiking');
 if(!$con)
-  echo"error conneting to db";
-$result = mysqli_query($con,"SELECT * FROM groups");
+   echo"error conneting to db";
+$result = mysqli_query($con,"SELECT * FROM person where type='admin'");
 ?>
 <?php
 if (mysqli_num_rows($result) > 0) {
 ?>
 <table class='table table-bordered table-striped'>
 <tr>
-<th>Name</th> 
-<th>Location</th>
-<th>Time from</th>
-<th>Time to</th>
-<th>Price</th>
-<th>Id</th>
-<!-- <th>Capacity</th> -->
+<th>First Name</th>  
+<th>Last Name</th>
+<!-- <th>Password</th> -->
+<th>Email</th>
+<th>Age</th>
+<th>Gender</th>
+<th>ID</th>
+<th>Mobile</th>
+<!-- <th>Photo</th> -->
+<th>Type</th>
+<!-- <th>SSN</th> -->
+<!-- <th>Address</th> -->
+<th>Salary</th>
+<!-- <th>Edit</th> -->
 <th>Delete</th>
-<th>Edit</th>
 
 </tr>
 <?php
 $i=0;
+
 while($row = mysqli_fetch_array($result)) {
 ?>
 <tr>
-<td><?php echo $row["name"]; ?></td>
-<td><?php echo $row["location"]; ?></td>
-<td><?php echo $row["timeslotfrom"]; ?></td>
-<td><?php echo $row["timeslotto"]; ?></td>
-<td><?php echo $row["price"]; ?></td>
-<td><?php echo $row["id"]; ?></td>
-<!-- <td><?php echo $row["capacity"]; ?></td> -->
+
+             <td><?php echo $row['firstname'];?></td>
+            <td><?php echo $row['lastname'];?></td>
+            <!-- <td><?php echo $row['pwd'];?></td> -->
+            <td><?php echo $row['email'];?></td>
+            <td><?php echo $row['age'];?></td>
+            <td><?php echo $row['gender'];?></td>
+            <td><?php echo $row['id'];?></td>
+            <td><?php echo $row['mobile'];?></td>
+            <!-- <td><?php echo $row['photo'];?></td> -->
+            <td><?php echo $row['type'];?></td>
+            <!-- <td><?php echo $row['ssn'];?></td> -->
+            <!-- <td><?php echo $row['address'];?></td> -->
+            <td><?php echo $row['salary'];?></td>
+<!-- <td>
+ <button type="submit" class="button" value="edit" onclick="window.location.href='editEmployee.php?id=<?=$row["id"]?>'" class="btn btn-primary">Edit</button>
+</td> -->
+
 <td>
-<?php $_SESSION['ID'] = $row["id"]; ?>
-   <button type="submit" class="button" value="Delete" onclick="window.location.href='deletegroups.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
-</td>
-<td>
-  <button type="submit" class="button" value="Edit" onclick="window.location.href='Editdisplaygroups.php?id=<?=  $row["id"];?>'" class="btn btn-primary">Edit</button>
+ <button type="submit" class="button" value="Delete" onclick="window.location.href='delete.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
 </td>
 
 </tr>
@@ -235,13 +281,18 @@ $i++;
 <?php
 }
 else{
-echo "No result found";
+    ?>
+<h3><?php echo "No result found";?></h3>
+<?php
 }
 ?>
 </div>
 </div>        
 </div>
 </div>
+</div>
+ </div>
+      
 </div>
 </body>
 </html>

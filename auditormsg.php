@@ -28,7 +28,7 @@ if(isset($_POST['search'])) {
 		
 	}
 	else{
-		$searchUser = "SELECT * FROM person WHERE firstname = '$search'";
+		$searchUser = "SELECT * FROM person WHERE firstname = '$search' and type='admin'";
 	}
 	$searchUserResult = mysqli_query($conn,$searchUser);
 
@@ -36,6 +36,10 @@ if(isset($_POST['search'])) {
 		<div>
 		<!-- <img src = "images/<?=$searchUserRow['image']?>" class="img-circle" width = "40"/> -->
 		<?=$searchUserRow['firstname']?>
+		<?php
+		if($searchUserRow['type']=='admin')
+		echo"(admin)";
+		?>
 		<a href="./audview.php?receiver=<?=$searchUserRow['id']?>">view chats</a>
 	
 	
@@ -59,6 +63,10 @@ while($searchUserRow = mysqli_fetch_array($searchUserResult)){	?>
     <div>
     <!-- <img src = "images/<?=$searchUserRow['image']?>" class="img-circle" width = "40"/> -->
     <?=$searchUserRow['firstname']?>
+	<?php
+		if($searchUserRow['type']=='admin')
+		echo"(admin)";
+		?>
     <a href="./audview.php?receiver=<?=$searchUserRow['id']?>">view chats</a>
 
 

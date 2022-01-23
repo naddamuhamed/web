@@ -27,7 +27,7 @@ if(isset($_POST['submit'])) {
 	$sent_by = $_POST['sent_by'];
 	$receiver = $_POST['received_by'];
 	$message = $_POST['message'];
-	$sendMessage = "INSERT INTO messages(sent_by,received_by,message,createdAt) VALUES('$sent_by','$receiver','$message','$createdAt')";
+	$sendMessage = "INSERT INTO messages(sent_by,received_by,message,createdAt,status) VALUES('$sent_by','$receiver','$message','$createdAt','1')";
 	mysqli_query($conn,$sendMessage) or die(mysqli_error($conn));
 }
 ?>
@@ -36,12 +36,19 @@ if(isset($_POST['submit'])) {
 <table class="table table-striped">
 <?php
 $getMessage = "SELECT  messages.* ,person.firstname FROM messages INNER JOIN person on sent_by=person.id  WHERE sent_by = '$receiver' AND received_by = ".$_SESSION['id']." OR sent_by = ".$_SESSION['id']." AND received_by = '$receiver' ORDER BY createdAt asc";
+// $getMessage = "SELECT  messages.* ,person.firstname, case, when messages.sent_by= '".$_SESSION['id']."' when messages.received_by='".$_SESSION['id']."' end as rs FROM messages INNER JOIN person on sent_by=person.id  WHERE sent_by = '$receiver' AND received_by = ".$_SESSION['id']." OR sent_by = ".$_SESSION['id']." AND received_by = '$receiver' ORDER BY createdAt asc";
+
 $getMessageResult = mysqli_query($conn,$getMessage) or die(mysqli_error($conn));
 if(mysqli_num_rows($getMessageResult) > 0) {
 	while($getMessageRow = mysqli_fetch_array($getMessageResult)) {	?>
 	<tr><div style = "margin: 10;">
 	<td>	<h4 style = "color: #007bff;display:inline"><?=$getMessageRow['firstname']?></h4></td>
 	<td>	<p class="text-center" style = "display:inline"><?=$getMessageRow['message']?></p></td>
+	<?php
+	$qu="UPDATE messages set status='0' where sent_by = '$receiver' AND received_by = ".$_SESSION['id']." ";
+	$f = mysqli_query($conn,$qu) or die(mysqli_error($conn));
+
+	?>
 		</div>
 		</tr>
 <?php } 

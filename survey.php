@@ -23,6 +23,7 @@ if(isset($_POST['submit'])){
     $q=$_POST['question'];
     echo $q;
     session_start();
+    $_SESSION['a']=array();
     $_SESSION['arr']=$arrsize;
     $_SESSION['q']=$q;
     ?>

@@ -24,10 +24,10 @@ for($i=0;$i<$_SESSION['arr'];$i++){
    echo "<br>";
 }
 // $_SESSION['c']=array();
-for($i=0;$i<$_SESSION['arr'];$i++){
-    // $_SESSION['c'][$i]=$arr[$i];
-    echo  $_SESSION['c'][$i];
-}
+// for($i=0;$i<$_SESSION['arr'];$i++){
+//     // $_SESSION['c'][$i]=$arr[$i];
+//     echo  $_SESSION['c'][$i];
+// }
 
 
 }

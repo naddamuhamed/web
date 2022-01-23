@@ -39,7 +39,7 @@ $address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
 // $address = $newaddress;
 // }
 $gender = filter_var($_POST['gender'], FILTER_SANITIZE_STRING);
-$age = filter_var($_POST['phoneNumber'], FILTER_SANITIZE_NUMBER_INT);
+$age = filter_var($_POST['age'], FILTER_SANITIZE_NUMBER_INT);
 // }
 
 ?>
