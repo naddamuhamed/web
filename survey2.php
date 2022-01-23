@@ -45,7 +45,7 @@ label
 </head>
 <body>
    <?php 
-//    session_start();
+   session_start();
    include"headeraud.php"; ?>
    <div class="main">
     <div class="container">

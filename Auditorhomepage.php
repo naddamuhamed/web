@@ -1,3 +1,11 @@
+
+<?php
+session_start();
+if($_SESSION['type']!='auditor')
+header("Location:errorpage.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

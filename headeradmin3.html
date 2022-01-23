@@ -1,14 +1,7 @@
-<?php
-// session_start();
-// if($_SESSION['type']!='hr')
-// header("Location:errorpage.php");
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>HR</title>
+    <title>Admin</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -102,12 +95,6 @@ position: relative;
   font-size: 5000;
   text-align: center;
 }
- body {
-  background-image: url('hiking-header.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;  
-  background-size: cover;
-}
  </style>
 
 </head>
@@ -116,19 +103,67 @@ position: relative;
 </div>
 
     <div class="sidenav">
-  <!-- <button class="dropdown-btn"> -->
-    <a href="invreqtable.php">View Investigation Request </a>
-  <!-- </button> -->
+  <button class="dropdown-btn">Hikers 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="Addhiker(admin).php">Add</a>
+    <a href="tablehiker.php">View</a>
+    <a href="hikersearch.php">View</a>
+  </div>
   <br>
-  <!-- <br> -->
-  <a href="logout.php">Logout</a>
-  
+  <button class="dropdown-btn">Manage other employees 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="addEmployee.php">Add</a>
+    <a href="tableEmployee.php">View</a>
+        <a href="empsearch.php">View</a>
+
+  </div>
+  <br>
+  <button class="dropdown-btn">Groups 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="addgroup.php">Add</a>
+    <a href="displaygroupstrial.php">View</a>
+  </div>
+  <br>
+  <button class="dropdown-btn">Products 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="AddProduct.php">Add</a>
+    <a href="tableproducts.php">View</a>
+  </div>
+  <br>
+  <a href="#messages">Messages</a>
+  <br>
+  <a href="tableOrders.php">Orders</a>
 </div>
 
 <div class="main">
   
 </div>
 
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
 
 
 </body>

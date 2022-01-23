@@ -44,7 +44,7 @@
 
   <?php
 
-// session_start();
+session_start();
 include"headeraud.php";
 $servername = "localhost";
 $username = "root";

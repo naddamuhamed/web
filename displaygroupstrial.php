@@ -126,6 +126,7 @@ $('[data-toggle="tooltip"]').tooltip();
         <?php
         $con=mysqli_connect('localhost','root','','hiking');
         if(isset($_GET['txt'])){
+          
             ?>
             <table border="1">
     

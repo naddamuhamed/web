@@ -36,7 +36,7 @@
   <body>
   	<?php 
 	  session_start();
-	  include"headeradmin.html"; ?>
+	  include"headeradmin2.html"; ?>
 	  <div class="main">
  <div class="container">
 
@@ -71,7 +71,7 @@ if(isset($_POST['submit'])) {
 ?>
 <!-- <img src="./images/<?=$getReceiverRow['image']?>" class="img-circle" width = "40"/> -->
 <strong><?=$getReceiverRow['firstname']?></strong>
-<table class="table table-striped">
+<table class="table">
 <?php
 $getMessage = "SELECT  messages.* ,person.firstname FROM messages INNER JOIN person on sent_by=person.id  WHERE sent_by = '$receiver' AND received_by = ".$_SESSION['id']." OR sent_by = ".$_SESSION['id']." AND received_by = '$receiver' ORDER BY createdAt asc";
 // $getMessage = "SELECT  messages.* ,person.firstname, case, when messages.sent_by= '".$_SESSION['id']."' when messages.received_by='".$_SESSION['id']."' end as rs FROM messages INNER JOIN person on sent_by=person.id  WHERE sent_by = '$receiver' AND received_by = ".$_SESSION['id']." OR sent_by = ".$_SESSION['id']." AND received_by = '$receiver' ORDER BY createdAt asc";

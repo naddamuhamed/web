@@ -15,6 +15,46 @@ while ($row= mysqli_fetch_array($result))
 
 session_start();
             if(isset($_POST['UPDATE'])){
+
+
+
+
+               if(basename($_FILES["photo"]["name"]!="")){
+                  $target_dir ="uploads/";
+$target_file=$target_dir.basename($_FILES["photo"]["name"]);
+// $uploadOk=i;
+// echo $target_file;
+
+// if (isset($_POST["submit"])){
+// if ($_FILES["photo"]["size"]>10000000)
+// echo "The File size is too large";
+// echo "<br> The file type".$_FILES["photo"]["type"]."<br>";
+// if ($_FILES["photo"]["type"]=="image/jpeg")
+// echo "File accepted";
+// else
+// echo "File has to be a jpeg image";
+
+$tmp_name = $_FILES["photo"]["tmp_name"];
+	$name=basename($_FILES["photo"]["name"]);
+	move_uploaded_file($tmp_name, "$target_dir/$name"); 
+               }
+               else{
+
+                  
+                  $query="SELECT * FROM groups WHERE id=".$_GET['id'];
+$result = mysqli_query($con,$query);
+while ($row= mysqli_fetch_array($result))
+            {
+
+               
+                  $photo=$row['photo'];
+            }
+            $target_file=$photo;
+               }
+
+
+
+
                // if($_POST['from']!=$timeslotfrom){
                //    $query="UPDATE groups SET name='".$_POST['name']."', location='".$_POST['loc']."', timeslotfrom='".$_POST['from']."', timeslotto='".$timeslotto."', price='".$_POST['price']."' where id=".$_GET['id'];
            
@@ -33,7 +73,7 @@ session_start();
           
                // }
 
-               $query="UPDATE groups SET name='".$_POST['name']."', location='".$_POST['loc']."', timeslotfrom='".$_POST['from']."', timeslotto='".$_POST['to']."', price='".$_POST['price']."' where id=".$_GET['id'];
+               $query="UPDATE groups SET name='".$_POST['name']."', location='".$_POST['loc']."', timeslotfrom='".$_POST['from']."', timeslotto='".$_POST['to']."', price='".$_POST['price']."', photo='".$target_file."' where id=".$_GET['id'];
            
 
 
@@ -115,8 +155,8 @@ unset($_SESSION['update']);
          <div class="col-lg-6">
             <div id="ui">
                <h1 class="text-center">Edit hiking groups</h1><br>
-               <form class="form-group text-center" action="" method="post"  >
-                  <!-- enctype='multipart/form-data' onsubmit='return validate(this)' -->
+               <form class="form-group text-center" action="" method="post" enctype='multipart/form-data' >
+                  <!--  onsubmit='return validate(this)' -->
                   <div class="row">
                      <div class="col-lg-3 ">
                         <label>Name</label>
@@ -227,6 +267,15 @@ unset($_SESSION['update']);
                        </input>
                    </div>
                   </div>
+                  <div class="row">
+                  <div class="col-lg-3 ">
+                        <label>photo</label>
+                       
+                     </div>
+                  <input type="file" name="photo" id="photo">
+
+                  </div>
+
                   <br>
                   <br>
 

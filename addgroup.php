@@ -3,10 +3,32 @@
    $con=mysqli_connect('localhost','root','','hiking');
 if(isset($_POST['submit']))
 {
+
+
+   $target_dir ="uploads/";
+   $target_file=$target_dir.basename($_FILES["photo"]["name"]);
+   // $uploadOk=i;
+   // echo $target_file;
+   
+   // if (isset($_POST["submit"])){
+   // if ($_FILES["photo"]["size"]>10000000)
+   // echo "The File size is too large";
+   // echo "<br> The file type".$_FILES["photo"]["type"]."<br>";
+   // if ($_FILES["photo"]["type"]=="image/jpeg")
+   // echo "File accepted";
+   // else
+   // echo "File has to be a jpeg image";
+   
+   $tmp_name = $_FILES["photo"]["tmp_name"];
+      $name=basename($_FILES["photo"]["name"]);
+      move_uploaded_file($tmp_name, "$target_dir/$name");
+
+
+
 if(!$con)
    // echo"error conneting to db";
    header("Location:errorpage.php");
-      $sql="INSERT INTO groups(name,location,timeslotfrom,timeslotto,price) values('".$_POST['name']."','".$_POST['location']."','".$_POST['from']."','".$_POST['to']."','".$_POST['price']."')";
+      $sql="INSERT INTO groups(name,location,timeslotfrom,timeslotto,price,photo) values('".$_POST['name']."','".$_POST['location']."','".$_POST['from']."','".$_POST['to']."','".$_POST['price']."','".$target_file."')";
       if($con->query($sql)===true){
          // echo "record inserted";
          ?>
@@ -80,7 +102,7 @@ include "headeradmin.html";
          <div class="col-lg-6">
             <div id="ui">
                <h1 class="text-center">Add Group</h1><br>
-               <form class="form-group text-center" action="#" method="post" >
+               <form class="form-group text-center" action="#" method="post" enctype='multipart/form-data' >
                   <!--  enctype='multipart/form-data' onsubmit='return validate(this)' -->
                   <div class="row">
                      <div class="col-lg-6 ">
@@ -125,6 +147,13 @@ include "headeradmin.html";
                            <br>
 
                      </div>
+<div class="row"><label>photo</label><br>
+                       
+                    
+                  <input type="file" name="photo" id="photo">
+               
+               </div>
+                     
                     
                     <!-- <div class="col-lg-6">
                      <input type="button" name="" value="clear" onclick="document.getElementById('4').value = ''"> 

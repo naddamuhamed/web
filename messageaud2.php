@@ -72,7 +72,7 @@ $sent_by=$_GET['user'];
 ?>
 <!-- <img src="./images/<?=$getReceiverRow['image']?>" class="img-circle" width = "40"/> -->
 <!-- <strong><?=$getReceiverRow['firstname']?></strong> -->
-<table class="table table-striped">
+<table class="table">
 <?php
 $getMessage = "SELECT  messages.* ,person.firstname FROM messages INNER JOIN person on sent_by=person.id  WHERE sent_by = '$receiver' AND received_by = '$sent_by' OR sent_by = '$sent_by' AND received_by = '$receiver' ORDER BY createdAt asc";
 $getMessageResult = mysqli_query($conn,$getMessage) or die(mysqli_error($conn));

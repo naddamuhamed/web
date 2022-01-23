@@ -1,7 +1,7 @@
 <?php
-session_start();
-if($_SESSION['type']!='admin')
-header("Location:errorpage.php");
+// session_start();
+// if($_SESSION['type']!='admin')
+// header("Location:errorpage.php");
 
 ?>
 
@@ -116,6 +116,7 @@ position: relative;
   <div class="dropdown-container">
     <!-- <a href="Addhiker(admin).php">Add</a> -->
     <a href="tablehiker.php">View</a>
+    <a href="hikersearch.php">View</a>
   </div>
   <br>
   <button class="dropdown-btn">Manage other employees 
@@ -124,6 +125,7 @@ position: relative;
   <div class="dropdown-container">
     <a href="addEmployee.php">Add</a>
     <a href="tableEmployee.php">View</a>
+    <a href="empsearch.php">View</a>
   </div>
   <br>
   <button class="dropdown-btn">Groups 

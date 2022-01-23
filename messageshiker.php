@@ -84,7 +84,7 @@ if(isset($_POST['search'])) {
 		if($searchUserRow['type']=='admin')
 		echo"(admin)";
 		?>
-		<a href="./message.php?receiver=<?=$searchUserRow['id']?>">Send message</a>
+		<a href="./messagehiker.php?receiver=<?=$searchUserRow['id']?>">Send message</a>
 	
 	
 		</div>
@@ -106,7 +106,7 @@ if(mysqli_num_rows($lastMessageResult) > 0) {
 		$fd = mysqli_query($conn,$gf) or die(mysqli_error($conn));
 		if(mysqli_num_rows($fd) > 0){
 			$nhgbf = mysqli_fetch_array($fd);
-				$a7a= $nhgbf['status'];
+				$status= $nhgbf['status'];
 		}
 		// mysqli_num_rows($fd);
 	
@@ -119,7 +119,7 @@ if(mysqli_num_rows($lastMessageResult) > 0) {
 		<div>
 		<!-- <img src = "./images/<?=$getSenderRow['image']?>" class="img-circle" width = "40"/>  -->
 		<?php
-		if($a7a==1){
+		if($status==1){
 			?>
 <u><b><?=$getSenderRow['firstname'];?></b></u>
 <?php

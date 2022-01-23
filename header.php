@@ -173,8 +173,9 @@ display: none;
                </li>
  -->               <li><a href="messageshiker.php">Messages</a></li>
                 <li><a href="contactus.php">Contact Us</a></li>
-
-                 <li><a href="logout.php">LogOut</a></li>      </div>
+                <li><a href="testsurvey2.php">survey</a></li>
+                 <li><a href="logout.php">LogOut</a></li>      
+                </div>
 
 
 </body>
