@@ -1,3 +1,10 @@
+<?php
+// session_start();
+// if($_SESSION['type']!='hiker')
+// header("Location:errorpage.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -164,7 +171,7 @@ display: none;
                   </ul>
                 </div>
                </li>
- -->               <li><a href="#">Messages</a></li>
+ -->               <li><a href="messageshiker.php">Messages</a></li>
                 <li><a href="contactus.php">Contact Us</a></li>
 
                  <li><a href="logout.php">LogOut</a></li>      </div>

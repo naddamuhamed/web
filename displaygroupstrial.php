@@ -136,6 +136,8 @@ $('[data-toggle="tooltip"]').tooltip();
 <th>Time to</th>
 <th>Price</th>
 <th>Id</th>
+<th>Delete</th>
+<th>Edit</th>
 <!-- <th>Capacity</th> -->
         </thead>
             <?php
@@ -155,6 +157,13 @@ $('[data-toggle="tooltip"]').tooltip();
 <td><?php echo $row["price"]; ?></td>
 <td><?php echo $row["id"]; ?></td>
 <!-- <td><?php echo $row["capacity"]; ?></td> -->
+
+<td>
+   <button type="submit" class="button" value="Delete" onclick="window.location.href='deletegroups.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
+</td>
+<td>
+  <button type="submit" class="button" value="Edit" onclick="window.location.href='Editdisplaygroups.php?id=<?=  $row["id"];?>'" class="btn btn-primary">Edit</button>
+</td>
             </tr>
         
             
@@ -219,7 +228,6 @@ while($row = mysqli_fetch_array($result)) {
 <td><?php echo $row["id"]; ?></td>
 <!-- <td><?php echo $row["capacity"]; ?></td> -->
 <td>
-<?php $_SESSION['ID'] = $row["id"]; ?>
    <button type="submit" class="button" value="Delete" onclick="window.location.href='deletegroups.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
 </td>
 <td>

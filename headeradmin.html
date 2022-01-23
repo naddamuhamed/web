@@ -1,3 +1,10 @@
+<?php
+session_start();
+if($_SESSION['type']!='hr')
+header("Location:errorpage.php");
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,9 +142,12 @@ position: relative;
     <a href="tableproducts.php">View</a>
   </div>
   <br>
-  <a href="#messages">Messages</a>
+  <a href="messagesadmin.php">Messages</a>
   <br>
   <a href="tableOrders.php">Orders</a>
+<!-- </div> -->
+<br>
+  <a href="logout.php">Logout</a>
 </div>
 
 <div class="main">

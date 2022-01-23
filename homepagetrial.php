@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+// session_start();
+// if($_SESSION['type']!='hiker')
+// header("Location:errorpage.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

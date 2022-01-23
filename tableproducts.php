@@ -86,6 +86,8 @@ $('[data-toggle="tooltip"]').tooltip();
         <th>photo</th>
         <th>price</th>
         <th>description</th>
+        <th>Delete</th>
+<th>Edit</th>
         </thead>
             <?php
             $values = $_GET['txt'];
@@ -103,6 +105,13 @@ $('[data-toggle="tooltip"]').tooltip();
             <td><?php echo $row['photo'];?></td>
             <td><?php echo $row['price'];?></td>
             <td><?php echo $row['description'];?></td>
+
+            <td>
+ <button type="submit" class="button" value="Delete" onclick="window.location.href='deleteproduct.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
+</td>
+<td>
+   <button type="submit" class="button" value="Edit" onclick="window.location.href='Editproduct.php?id=<?=$row["id"]?>'" class="btn btn-primary">Edit</button>
+</td>
             </tr>
         
             

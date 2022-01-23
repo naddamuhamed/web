@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['type']!='hr')
+if($_SESSION['type']!='auditor')
 header("Location:errorpage.php");
 
 ?>

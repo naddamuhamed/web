@@ -172,7 +172,7 @@ $('[data-toggle="tooltip"]').tooltip();
             <!-- <td><?php echo $row['ssn'];?></td> -->
             <td><?php echo $row['salary'];?></td>
             <td>
- <button type="submit" class="button" value="Delete" onclick="window.location.href='delete.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
+ <button type="submit" class="button" value="Delete" onclick="window.location.href='deleteemp.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
 </td>
             </tr>
         
@@ -269,7 +269,7 @@ while($row = mysqli_fetch_array($result)) {
 </td> -->
 
 <td>
- <button type="submit" class="button" value="Delete" onclick="window.location.href='delete.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
+ <button type="submit" class="button" value="Delete" onclick="window.location.href='deleteemp.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
 </td>
 
 </tr>

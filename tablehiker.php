@@ -161,7 +161,7 @@ $('[data-toggle="tooltip"]').tooltip();
     <button type="submit" class="button" value="view" onclick="window.location.href='viewprofile(admin).php?id=<?=$row["id"]?>'" class="btn btn-primary">View</button>
 </td>
 <td>
-   <button type="submit" class="button" value="Delete" onclick="window.location.href='delete.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
+   <button type="submit" class="button" value="Delete" onclick="window.location.href='deletehiker.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
 </td>
             </tr>
         
@@ -243,7 +243,7 @@ while($row = mysqli_fetch_array($result)) {
     <button type="submit" class="button" value="view" onclick="window.location.href='viewprofile(admin).php?id=<?=$row["id"]?>'" class="btn btn-primary">View</button>
 </td>
 <td>
-   <button type="submit" class="button" value="Delete" onclick="window.location.href='delete.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
+   <button type="submit" class="button" value="Delete" onclick="window.location.href='deletehiker.php?id=<?=$row["id"]?>'" class="btn btn-primary">Delete</button>
 </td>
 
 </tr>

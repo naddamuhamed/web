@@ -28,7 +28,7 @@ if($result)
 
 
     <?php
-
+ header("Location:tablehiker.php");
 }
 else
 {

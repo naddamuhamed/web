@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Auditor</title>
+  <title>Auditor</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  <style>
- 	 	body {
+    body {
   font-family: "Lato", sans-serif;
 }
 
@@ -71,21 +71,13 @@ position: relative;
 
 </head>
 <body>
-	<div class="container">
-  <img src="hiking-header.jpg" width="1330px" height="800px">
+  <?php include"headeraud.php"; ?>
+  
+  <img src="hiking-header.jpg"  width="1520px" height="750px">
   <div class="text-block">
   <h1><b>Hiking Club</b></h1>
   <p><b>When life gives you mountains, put on your boots and HIKE..</b></p>
   </div>
-</div>
-	<div class="sidenav">
-  
-  <a href="sendinv.php">Investigation request</a>
-  <br>
-  <a href="#messages">Messages</a>
-  
- 
-</div>
 
 
 </body>

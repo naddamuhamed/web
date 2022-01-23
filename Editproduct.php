@@ -13,8 +13,9 @@ while ($row= mysqli_fetch_array($result))
             }
 session_start();
             if(isset($_POST['UPDATE'])){
+
                if(basename($_FILES["photo"]["name"]!="")){
-                  $target_dir ="uploads/";
+                  $target_dir ="product-images/";
 $target_file=$target_dir.basename($_FILES["photo"]["name"]);
 // $uploadOk=i;
 // echo $target_file;
@@ -35,7 +36,7 @@ $tmp_name = $_FILES["photo"]["tmp_name"];
                else{
 
                   
-                  $query="SELECT * FROM person WHERE id=".$_SESSION['id'];
+                  $query="SELECT * FROM items WHERE id=".$_GET['id'];
 $result = mysqli_query($con,$query);
 while ($row= mysqli_fetch_array($result))
             {
@@ -47,7 +48,7 @@ while ($row= mysqli_fetch_array($result))
                }
 
 
-            $query="UPDATE items SET name='".$_POST['name']."', code='".$_POST['code']."', price='".$_POST['price']."', description='".$_POST['description']."', photo='".$_POST['photo']."' where id=".$_GET['id'];
+            $query="UPDATE items SET name='".$_POST['name']."', code='".$_POST['code']."', price='".$_POST['price']."', description='".$_POST['description']."', photo='".$target_file."' where id=".$_GET['id'];
             $result = mysqli_query($con,$query);
             if($result){
        $_SESSION['update']="data updated successfully";
@@ -60,6 +61,18 @@ while ($row= mysqli_fetch_array($result))
                 
             }
         }
+
+        $query="SELECT * FROM items WHERE id=".$_GET['id'];;
+$result = mysqli_query($con,$query);
+while ($row= mysqli_fetch_array($result))
+            {
+
+                $name  = $row['name'];
+                $code = $row['code'];
+                $price = $row['price'];
+                $description = $row['description'];
+                $photo = $row['photo'];
+            }
 ?>
 <html>
 <head>
@@ -114,7 +127,7 @@ unset($_SESSION['update']);
          <div class="col-lg-6">
             <div id="ui">
                <h1 class="text-center">Edit Product</h1><br>
-               <form class="form-group text-center" action="" method="post"  enctype='multipart/form-data>
+               <form class="form-group text-center" action="" method="post"  enctype='multipart/form-data'>
                   <!-- ' onsubmit='return validate(this)' -->
 <div  id="profile-container">
    <image class="img1" id="profileImage" src="<?php echo $photo ?>">

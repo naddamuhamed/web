@@ -8,7 +8,7 @@
     $request_date = null;   
       if(isset($_POST['search_button'])){
       $values = $_POST['name'];        
-      $query = "SELECT * FROM person WHERE CONCAT(firstname) Like (('%$values%')) and type='admin' ";        
+      $query = "SELECT * FROM person WHERE CONCAT(firstname) Like (('%$values%')) ";        
       $result = mysqli_query($con,$query);
       if(mysqli_num_rows($result)>0){
                 foreach($result as $row){
@@ -41,7 +41,8 @@
 ?>
 <html>
 
-<head>
+
+
     <head>
          
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,12 +64,6 @@ form.example::after {
   clear: both;
   display: table;
 }
-      #ui {
-         background-color: darkslategrey;
-         padding: 20px;
-         margin-top: 60px;
-         border-radius: 50px;
-      }
 
       #ui label,
       h1 {
@@ -81,10 +76,29 @@ form.example::after {
        .col-lg-12{
            text-indent: 250px;
        }
+
+               body {
+  background-image: url('backgroundpic1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+ #ui {
+         background-color:#0ACF5A;
+         padding: 20px;
+         margin-top: 100px;
+         border-radius: 50px;
+      }
+      .searchbutton
+      {
+        background-color:#F88306;
+      }
    </style>
 </head>
 
-
+<body>
+    <?php include "headeraud.php"; ?>
 <div class="container">
    <div class="row">
       <div class="col-lg-3"></div>
@@ -95,10 +109,11 @@ form.example::after {
                
                   <!--  enctype='multipart/form-data' onsubmit='return validate(this)' -->
                <label >Admin Name:</label>
-               <div class="col-lg-12 ">                   
+               <br>
+               <div class="col-lg-11 ">                   
                   <form class="form-group text-center" method = "post" style="margin:auto;max-width:300px" >                         
                      <input type="text" placeholder="Search.." name="name" value="<?php echo $admin_name ?>" >
-                     <button type="submit" name = "search_button" value = "search_button"><i class="fa fa-search"></i></button>
+                     <button type="submit" name = "search_button" class="searchbutton" value = "search_button"><i class="fa fa-search"></i></button>
                   </form>                                
                </div>
                <form class="form-group text-center" method = "post" >
@@ -126,7 +141,9 @@ form.example::after {
                </div>
                <br>                     
                <br>
-               <button type="submit" name="submit" value="submit" class="btn btn-success" >Submit</button>               
+               <br>
+               <br>
+               <button type="submit" name="submit" value="submit" class="searchbutton" >Submit</button>               
                <!-- <button type="submit"  value="submit" class="btn btn-primary">Submit</button> -->
                <!-- <button type="button"  value="submit" class="btn btn-primary">Submit</button> -->
             </form>               

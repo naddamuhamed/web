@@ -43,7 +43,15 @@ if($row=mysqli_fetch_array($result)){
   $_SESSION['gender']=$row['gender'];
   $_SESSION['age']=$row['age'];
   $_SESSION['type']=$row['type'];
+
+  if($_SESSION['type']=='hiker')
     header("Location:homepagetrial.php");
+    else if($_SESSION['type']=='admin')
+    header("Location:adminhomepage.php");
+    else if($_SESSION['type']=='auditor')
+    header("Location:auditorhomepage.php");
+    else if($_SESSION['type']=='hr')
+    header("Location:hrhomepage.html");
 
 }
 else{

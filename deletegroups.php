@@ -28,7 +28,7 @@ if($result)
 </div>
     
     <?php
-    header("Location:displaygroupstrial1.php");
+    header("Location:displaygroupstrial.php");
 }
 else
 {

@@ -15,7 +15,7 @@ session_start();
 
 // Create connection
 $con=mysqli_connect('localhost','root','','hiking');
-$sql="delete from emp where id =".$_GET['id'];
+$sql="delete from person where id =".$_GET['id'];
 $result=mysqli_query($con,$sql);
 if($result)
 {

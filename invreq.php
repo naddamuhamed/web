@@ -101,8 +101,6 @@ if((isset($_GET['ID']))){
 <html>
 
 <head>
-    <head>
-         
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <title>Investigation Request <?php echo $id ?></title>
@@ -122,10 +120,17 @@ form.example::after {
   clear: both;
   display: table;
 }
-      #ui {
-         background-color: darkslategrey;
+     body {
+  background-image: url('backgroundpic1.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+ .container {
+         background-color: #0ACF5A;
          padding: 20px;
-         margin-top: 60px;
+         margin-top: 200px;
          border-radius: 50px;
       }
 
@@ -143,7 +148,8 @@ form.example::after {
    </style>
 </head>
 
-
+<?php include"headerHR.php"; ?>
+<div class="main">
    <div class="container">
       <div class="row">
          <div class="col-lg-3"></div>
@@ -210,7 +216,7 @@ form.example::after {
          <div class="col-lg-3"></div>
       </div>
    </div>
-
+</div>
 
 </body>
 
